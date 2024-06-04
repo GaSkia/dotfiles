@@ -1,0 +1,83 @@
+* {
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    padding: 0;
+    margin: 2px 0 2px 0px;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #2FFFFD;
+    padding-bottom: 3px;
+}
+
+#workspaces button {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+#workspaces button.active {
+    color: #2FFFFD;
+}
+
+.modules-left {
+    background-color: transparent;
+    color: black;
+    padding-right: 10px;
+    border-left: 2px solid #b66874;
+    border-right: 2px solid #b66874;
+    border-radius: 15px;
+    padding-left: 10px;
+    margin-right: 7px;
+}
+.modules-center {
+    background-color: transparent;
+    color: black;
+    padding-right: 10px;
+    border-left: 2px solid #b66874;
+    border-right: 2px solid #b66874;
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 7px;
+}
+.modules-right {
+    background-color: transparent;
+    color: black;
+    border-left: 2px solid #b66874;
+    border-right: 2px solid #b66874;
+    border-radius: 15px;
+    border-left: 2px solid #b66874;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 7px;
+    margin-left: 7px;
+}
+
+#pulseaudio, #temperature, #bluetooth, #network, #clock{
+    background-color: transparent;
+    color: white;
+    border-radius: 15px;
+    padding-right: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #4c7489;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 7px;
+    margin-left: 7px;
+}
+
+#pulseaudio:hover, #temperature:hover, #bluetooth:hover, #network:hover, #clock:hover {
+    background-color: #d8ac9d;
+    color: black;
+    border-radius: 15px;
+    padding-right: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #4c7489;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 7px;
+    margin-left: 7px;
+}
+
