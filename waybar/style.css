@@ -1,6 +1,6 @@
 * {
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 10px;
     padding: 0;
     margin: 2px 0 2px 0px;
 }
@@ -21,7 +21,7 @@ window#waybar {
 
 .modules-left {
     background-color: transparent;
-    color: black;
+    color: white;
     padding-right: 10px;
     border-left: 2px solid #b66874;
     border-right: 2px solid #b66874;
@@ -31,7 +31,7 @@ window#waybar {
 }
 .modules-center {
     background-color: transparent;
-    color: black;
+    color: white;
     padding-right: 10px;
     border-left: 2px solid #b66874;
     border-right: 2px solid #b66874;
@@ -42,7 +42,7 @@ window#waybar {
 }
 .modules-right {
     background-color: transparent;
-    color: black;
+    color: white;
     border-left: 2px solid #b66874;
     border-right: 2px solid #b66874;
     border-radius: 15px;
@@ -53,7 +53,7 @@ window#waybar {
     margin-left: 7px;
 }
 
-#pulseaudio, #temperature, #bluetooth, #network, #clock{
+#pulseaudio, #battery, #temperature, #bluetooth, #network, #clock{
     background-color: transparent;
     color: white;
     border-radius: 15px;
@@ -69,7 +69,7 @@ window#waybar {
 
 #pulseaudio:hover, #temperature:hover, #bluetooth:hover, #network:hover, #clock:hover {
     background-color: #d8ac9d;
-    color: black;
+    color: white;
     border-radius: 15px;
     padding-right: 10px;
     border-style: solid;
