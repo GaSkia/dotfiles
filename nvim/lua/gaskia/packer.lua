@@ -16,4 +16,17 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  ---------------
+  --- HARPOON ---
+  ---------------
+  use {
+	  'theprimeagen/harpoon',
+	  branch = 'harpoon2',
+	  dependencies =  {'nvim-lua/plenary.nvim'}
+  }
+  
+  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+	  
+
 end)
+
