@@ -1,0 +1,23 @@
+[font]
+  normal = { family = "FiraCode", style = "Regular" }
+
+[window]
+  opacity = 0.7
+  padding.x = 10
+  padding.y = 10
+  dynamic_padding = true
+  decorations_theme_variant = "Dark"
+
+[colors.primary]
+#  background = "#1A1B26"
+  background = "#13394d"
+  foreground = "#a9b1d6"
+[colors.normal]
+  black =   "#32344a"
+  red   =   "#f7768e"
+  green =   "#9ece6a"
+  yellow=  "#e0af68"
+  blue=    "#7aa2f7"
+  magenta= "#ad8ee6"
+  cyan=    "#449dab"
+  white=   "#787c99"
