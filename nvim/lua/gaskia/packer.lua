@@ -28,13 +28,20 @@ return require('packer').startup(function(use)
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	  
   use ({
+      'shaunsingh/nord.nvim',
+      as = 'nord',
+      config = function()
+          vim.cmd('colorscheme nord')
+      end;
+      })
+
+  use ({
       'rose-pine/neovim',
       as = 'rose-pine',
       config = function()
           vim.cmd('colorscheme rose-pine')
       end;
       })
-  use ('williamboman/mason.nvim')
 
   use 'nvim-treesitter/playground'
 
@@ -46,8 +53,8 @@ return require('packer').startup(function(use)
       branch = 'v3.x',
       requires = {
           --- Uncomment the two plugins below if you want to manage the language servers from neovim
-          -- {'williamboman/mason.nvim'},
-          -- {'williamboman/mason-lspconfig.nvim'},
+          {'williamboman/mason.nvim'},
+          {'williamboman/mason-lspconfig.nvim'},
 
           {'neovim/nvim-lspconfig'},
           {'hrsh7th/nvim-cmp'},
