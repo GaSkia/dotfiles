@@ -8,6 +8,7 @@ require'nvim-treesitter.configs'.setup {
         "query",
         "vimdoc",
         "cpp",
+        --"csharp",
     },
 
     sync_install = false,
