@@ -7,4 +7,3 @@ vim.keymap.set('n', '<leader>n', function()
 		vim.o.relativenumber = true
 	end
 end)
-

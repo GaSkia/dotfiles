@@ -1,46 +1,38 @@
-local lsp = require('lsp-zero')
-
-lsp.preset('recommended')
-lsp.setup()
-
-lsp.on_attach(function(client, bufnr)
-    lsp.default_keymaps({buffer = bufnr})
-end)
-
-require('mason').setup()
-require('mason-lspconfig').setup({
-    ensure_installed = {},
-    handlers = {
-        function(server_name)
-            require('lspconfig')[server_name].setup({})
-        end,
-    },
-})
-
---------------------
--- AUTOCOMPLETION --
---------------------
-
-local cmp = require('cmp')
-
-cmp.setup({
-    sources = {
-        {name = 'nvim_lsp'},
-    },
-    
-    --------------
-    -- MAPPINGS --
-    --------------
-    mapping = {
-        ['<C-y>'] = cmp.mapping.confirm({select = true}),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<Up>'] = cmp.mapping.select_prev_item({behaviour = 'select'}),
-        ['<Down>'] = cmp.mapping.select_next_item({behaviour = 'select'}),
-    }
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = { "lua_ls" }
 })
 
 
+local on_attach = function()
+    vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename, {})
+end
 
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
---lsp.set_preferences
+require("lspconfig").lua_ls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            diagnostic = {
+                globals = { 'vim' }
+            },
+        },
+    },
+}
+
+require("lspconfig").pylsp.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
+require("lspconfig").clangd.setup {
+    on_attach = on_attach(),
+    capabilities = capabilities,
+}
+
+require("lspconfig").kotlin_language_server.setup {
+    on_attach = on_attach(),
+    capabilities = capabilities,
+}
