@@ -5,4 +5,4 @@ function ColorMeMaster(color)
 	vim.api.nvim_set_hl(0, 'normalFloat', {bg = 'none'})
 end
 
-ColorMeMaster(color)
+ColorMeMaster()

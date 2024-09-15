@@ -7,3 +7,4 @@ vim.keymap.set('n', '<leader>n', function()
 		vim.o.relativenumber = true
 	end
 end)
+vim.keymap.set('n', '<leader>t', ':Neotree filesystem reveal left<CR>')
