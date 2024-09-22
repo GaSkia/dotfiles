@@ -74,5 +74,6 @@ return require('packer').startup(function(use)
       },
   }
   use 'nvim-lualine/lualine.nvim'
+  use 'folke/tokyonight.nvim'
 end)
 
