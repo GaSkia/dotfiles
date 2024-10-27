@@ -4,6 +4,7 @@
     //-------------------//
 
     "modules-left": [
+        "custom/power",
         "hyprland/workspaces",
     ],
 
@@ -29,6 +30,12 @@
     //-MODULES-LEFT-//
     //--------------//
 
+    "custom/power": {
+        "format": "{icon}",
+        "format-icons": {
+            "0": "⏻",
+        },
+    },
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
