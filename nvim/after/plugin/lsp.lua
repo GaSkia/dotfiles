@@ -45,7 +45,7 @@ require("lspconfig").clangd.setup {
 -- }
 
 require("lspconfig").dartls.setup {
-    on_attach = function (client, bufnr)
+    on_attach = function (client)
         on_attach()
         if client.name == 'dartls' then
             vim.o.tabstop = 2
@@ -58,7 +58,7 @@ require("lspconfig").dartls.setup {
 }
 
 require("lspconfig").kotlin_language_server.setup {
-    on_attach = function (client, bufnr)
+    on_attach = function (client)
         on_attach()
         if client.name == 'kotlin_language_server' then
             vim.o.tabstop = 2
@@ -71,6 +71,11 @@ require("lspconfig").kotlin_language_server.setup {
 }
 
 require('lspconfig').omnisharp.setup {
-    on_attach = on_attach(),
+    on_attach = function (client)
+        on_attach()
+        if client.name == 'omnisharp' then
+            vim.o.colorcolumn = "100"
+        end
+    end,
     capabilities = capabilities
 }
