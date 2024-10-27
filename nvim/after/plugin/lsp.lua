@@ -69,3 +69,8 @@ require("lspconfig").kotlin_language_server.setup {
     end,
     capabilities = capabilities,
 }
+
+require('lspconfig').omnisharp.setup {
+    on_attach = on_attach(),
+    capabilities = capabilities
+}

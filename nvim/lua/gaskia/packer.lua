@@ -26,14 +26,6 @@ return require('packer').startup(function(use)
       end;
       })
 
-  use ({
-      'rose-pine/neovim',
-      as = 'rose-pine',
-      config = function()
-          vim.cmd('colorscheme rose-pine')
-      end;
-      })
-
   use 'nvim-treesitter/playground'
 
   use('mbbill/undotree')
@@ -76,4 +68,3 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'folke/tokyonight.nvim'
 end)
-
