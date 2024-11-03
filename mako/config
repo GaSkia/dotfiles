@@ -1,4 +1,7 @@
+background-color=#632438
 font=FiraCode 9
 max-visible=5000
 default-timeout=3000
 border-radius=15
+border-color=#FA5D58
+text-color=#FC854C
