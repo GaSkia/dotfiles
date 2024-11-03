@@ -1,15 +1,18 @@
 {
-    //-------------------//
-    //-MODULES-AND-ORDER-//
-    //-------------------//
+//-------------------//
+//-MODULES-AND-ORDER-//
+//-------------------//
 
     "modules-left": [
-        "custom/power",
         "hyprland/workspaces",
+        "power-profiles-daemon",
     ],
 
     "modules-center": [
-        "clock"
+        "cpu",
+        "clock",
+        "memory",
+        "systemd-failed-units",
     ],
 
     "modules-right": [
@@ -20,21 +23,14 @@
         "battery",
     ],
 
-    //-----------------------//
-    //-MODULES-CONFIGURATION-//
-    //-----------------------//
-
+//-----------------------//
+//-MODULES-CONFIGURATION-//
+//-----------------------//
 
     //--------------//
     //-MODULES-LEFT-//
     //--------------//
 
-    "custom/power": {
-        "format": "{icon}",
-        "format-icons": {
-            "0": "⏻",
-        },
-    },
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -49,12 +45,65 @@
             "3": [],
             "4": [],
         },
+
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}   {profile}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
     },
 
     //----------------//
     //-MODULES-CENTER-//
     //----------------//
+
+    "systemd-failed-units":{
+        "hide-on-ok": false,
+        "format": "x {nr_failed_system}",
+        "format-ok": "✓",
+        "system": true,
+    },
+
+    "cpu": {
+        "interval": 10,
+        "format": "{usage}%",
+        "max-length": 10,
+        
+    },
+
     "clock": {
+        "interval": 60,
+        "format": "{:%H:%M}",
+        "timezone": "Europe/Rome",
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
 
     //---------------//
