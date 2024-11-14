@@ -7,6 +7,8 @@ return {
                 package_pending = "➜",
                 package_uninstalled = "✗"
             }
-        }
+        },
+        ensure_installed = { 'lua_ls', 'pylsp', 'clangd' },
+        automatic_installation = true,
     }
 }
