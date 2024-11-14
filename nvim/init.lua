@@ -22,6 +22,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("vim-remap")
+require("vim-diagnostic")
 require("config.colors")
 require("vim-options")
 require("lazy").setup("plugins")
