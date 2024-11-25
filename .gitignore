@@ -41,3 +41,4 @@ system*
 rncbc.org*
 *.json
 hypr/config/monitor.conf
+*.bak
