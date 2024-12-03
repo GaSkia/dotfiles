@@ -4,10 +4,16 @@ return {
 	    "williamboman/mason.nvim",
 	    "neovim/nvim-lspconfig",
     },
+    opts = {
+	    ensure_installed = {
+		    "csharpier",
+		    "pylsp",
+		    "netcoredbg",
+	    }
+    },
     config = function()
 	    require("mason").setup()
 	    require("mason-lspconfig").setup({
-	    ensure_installed = {omnisharp, pylsp}
 	    }) 
 
 	    -- After setting up mason-lspconfig you may set up servers via lspconfig

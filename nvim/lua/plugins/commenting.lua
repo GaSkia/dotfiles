@@ -1,3 +1,4 @@
+--TODO: add shortcuts to show lists
 return {
     'numToStr/Comment.nvim',
     config = function()
