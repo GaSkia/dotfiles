@@ -1,8 +1,0 @@
-2025/01/05-21:33:27.941 1420c Creating DB /home/gaskia/.config/MongoDB Compass/Local Storage/leveldb since it was missing.
-2025/01/05-21:33:27.948 1420c Reusing MANIFEST /home/gaskia/.config/MongoDB Compass/Local Storage/leveldb/MANIFEST-000001
-2025/01/05-22:10:28.395 1420c Level-0 table #5: started
-2025/01/05-22:10:28.397 1420c Level-0 table #5: 16669 bytes OK
-2025/01/05-22:10:28.399 1420c Delete type=0 #3
-2025/01/05-22:47:28.404 1420c Level-0 table #7: started
-2025/01/05-22:47:28.406 1420c Level-0 table #7: 16574 bytes OK
-2025/01/05-22:47:28.408 1420c Delete type=0 #4
