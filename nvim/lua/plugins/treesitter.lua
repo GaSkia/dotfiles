@@ -12,6 +12,11 @@ return{
 				"vimdoc",
 				"python",
 				"go",
+                "css",
+                "html",
+                "javascript",
+                "typescript",
+                "cpp",
 			},
 		})
 	end,
