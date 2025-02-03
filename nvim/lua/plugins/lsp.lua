@@ -50,7 +50,9 @@ return {
         },
         cmd = "lsp",
         opts = function()
-            
+            diagnostic = {
+
+            }
         end,
     },
 }
