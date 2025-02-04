@@ -7,6 +7,8 @@ return {
         local mason = require("mason")
         local mason_lspconfig = require("mason-lspconfig")
 
+        local keymap = require("vim.keymap")
+
         mason.setup({
             ui = {
                 icons = {
@@ -29,5 +31,7 @@ return {
             },
             automatic_installation = true,
         })
+
+        keymap.set("n", "<leader>ms", "<cmd>Mason<CR>")
     end,
 }
