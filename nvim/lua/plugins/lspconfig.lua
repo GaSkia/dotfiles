@@ -1,4 +1,15 @@
 return {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+    config = function ()
+        local lspconfig = require("lpsconfig")
+        lspconfig.pyright.setup{
+        }
+    end
 }
+-- "ts_ls",
+-- "pylsp",
+-- "clangd",
+-- "html",
+-- "cssls",
+-- "tailwindcss",
+-- "lua_ls",

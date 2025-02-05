@@ -22,7 +22,7 @@ return {
         mason_lspconfig.setup({
             ensure_installed = {
                 "ts_ls",
-                "pylsp",
+                "pyright",
                 "clangd",
                 "html",
                 "cssls",
