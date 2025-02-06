@@ -1,7 +1,8 @@
 return {
     "neovim/nvim-lspconfig",
+    -- "neovim/nvim-lspconfig",
     config = function ()
-        local lspconfig = require("lpsconfig")
+        local lspconfig = require("lspconfig")
         lspconfig.pyright.setup{
 
         }
@@ -11,8 +12,19 @@ return {
         lspconfig.html.setup{}
         lspconfig.cssls.setup{}
         lspconfig.lua_ls.setup{}
-        lspconfig.csharp_ls.setup{}
-    end
+        -- lspconfig.csharp_ls.setup{
+            -- cmd = {
+            --     '/home/gaskia/.dotnet/dotnet',
+            --     '/home/gaskia/.local/share/nvim/mason/bin/csharp-ls'
+            -- }
+        -- }
+        lspconfig.omnisharp.setup({
+            cmd = {
+                "/home/gaskia/.dotnet",
+                '/home/gaskia/.local/share/nvim/mason/bin/omnisharp'
+            }
+        })
+    end,
 }
 -- "ts_ls",
 -- "pylsp",
