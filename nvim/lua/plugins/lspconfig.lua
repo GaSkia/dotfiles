@@ -11,6 +11,7 @@ return {
         lspconfig.html.setup{}
         lspconfig.cssls.setup{}
         lspconfig.lua_ls.setup{}
+        lspconfig.csharp_ls.setup{}
     end
 }
 -- "ts_ls",

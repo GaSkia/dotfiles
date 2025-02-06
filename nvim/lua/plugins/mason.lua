@@ -37,6 +37,7 @@ return {
                     "cssls",
                     "tailwindcss",
                     "lua_ls",
+                    "csharp_lsp",
                 },
                 automatic_installation = true,
             })
