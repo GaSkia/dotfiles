@@ -3,7 +3,14 @@ return {
     config = function ()
         local lspconfig = require("lpsconfig")
         lspconfig.pyright.setup{
+
         }
+
+        lspconfig.ts_ls.setup{}
+        lspconfig.clangd.setup{}
+        lspconfig.html.setup{}
+        lspconfig.cssls.setup{}
+        lspconfig.lua_ls.setup{}
     end
 }
 -- "ts_ls",
