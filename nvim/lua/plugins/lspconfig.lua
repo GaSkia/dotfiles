@@ -18,12 +18,10 @@ return {
             --     '/home/gaskia/.local/share/nvim/mason/bin/csharp-ls'
             -- }
         -- }
-        lspconfig.omnisharp.setup({
-            cmd = {
-                "/home/gaskia/.dotnet",
-                '/home/gaskia/.local/share/nvim/mason/bin/omnisharp'
-            }
-        })
+        lspconfig.omnisharp.setup{
+            cmd = { "/home/gaskia/.local/share/nvim/mason/bin/omnisharp", "--languageserver" },
+            root_dir = require('lspconfig.util').root_pattern('*.sln', '*.csproj', '.git'),
+        }
     end,
 }
 -- "ts_ls",
