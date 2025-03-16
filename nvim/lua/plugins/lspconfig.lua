@@ -1,27 +1,56 @@
 return {
     "neovim/nvim-lspconfig",
-    -- "neovim/nvim-lspconfig",
+    -- opts = {
+        -- inlay_hints = { enabled = true },
+        -- servers = {
+            -- pyright = {},
+            -- html = {},
+            -- ts_ls = {},
+            -- cssls = {},
+            -- clangd = {},
+            -- lua_ls = {},
+            -- omnisharp = {},
+        -- },
+        -- setup = {},
+    -- },
     config = function ()
         local lspconfig = require("lspconfig")
         lspconfig.pyright.setup{
-
+--
         }
-
+--
+        lspconfig.html.setup({
+            cmd = { "vscode-html-language-server", "--stdio" },
+            filetypes = { "html", "htmldjango", "eelixir" },
+            init_options = {
+                configurationSection = { "html", "css", "javascript" },
+                embeddedLanguages = {
+                    css = true,
+                    javascript = true,
+                },
+            },
+            settings = {
+                html = {
+                    format = {
+                        wrapLineLength = 120,
+                        unformatted = "wbr",
+                    },
+                },
+            },
+        })
         lspconfig.ts_ls.setup{}
         lspconfig.clangd.setup{}
-        lspconfig.html.setup{}
         lspconfig.cssls.setup{}
+        lspconfig.htmlhint.setup{}
         lspconfig.lua_ls.setup{}
-        -- lspconfig.csharp_ls.setup{
-            -- cmd = {
-            --     '/home/gaskia/.dotnet/dotnet',
-            --     '/home/gaskia/.local/share/nvim/mason/bin/csharp-ls'
-            -- }
-        -- }
-        lspconfig.omnisharp.setup{
-            cmd = { "/home/gaskia/.local/share/nvim/mason/bin/omnisharp", "--languageserver" },
-            root_dir = require('lspconfig.util').root_pattern('*.sln', '*.csproj', '.git'),
+        lspconfig.csharp_ls.setup{
+            cmd = {
+                '/home/gaskia/.dotnet/dotnet',
+                '/home/gaskia/.local/share/nvim/mason/bin/csharp-ls'
+            }
         }
+        lspconfig.omnisharp.setup{}
+        lspconfig.sqls.setup{}
     end,
 }
 -- "ts_ls",

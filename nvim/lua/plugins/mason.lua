@@ -37,6 +37,7 @@ return {
                     "cssls",
                     "tailwindcss",
                     "lua_ls",
+                    -- "htmlhint",
                     -- "csharp_ls",
                     "omnisharp",
                 },
