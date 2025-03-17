@@ -14,5 +14,7 @@ vim.diagnostic.config({
        source = "always",
    },
 })
+
+vim.opt.colorcolumn = "80"
 vim.keymap.set('n', '<leader>ne', function() vim.diagnostic.goto_next() end)
 vim.keymap.set('n', '<leader>pe', function() vim.diagnostic.goto_prev() end)
