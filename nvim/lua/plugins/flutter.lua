@@ -17,9 +17,6 @@ return {
                 },
             },
             -- 👇 formatter settings
-            flutter_outline = {
-                enabled = true,
-            },
             widget_guides = {
                 enabled = true,
             },
