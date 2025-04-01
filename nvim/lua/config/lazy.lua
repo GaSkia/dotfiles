@@ -21,4 +21,7 @@ require("lazy").setup({
 		{ import = "plugins" },
 	},
 	checker = { enabled = true },
+
 })
+
+vim.api.nvim_create_autocmd("VimEnter", {callback=function() require("lazy").update() end})
