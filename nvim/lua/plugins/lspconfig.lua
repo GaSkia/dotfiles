@@ -41,7 +41,6 @@ return {
         lspconfig.ts_ls.setup{}
         lspconfig.clangd.setup{}
         lspconfig.cssls.setup{}
-        lspconfig.htmlhint.setup{}
         lspconfig.lua_ls.setup{}
         lspconfig.csharp_ls.setup{
             cmd = {
