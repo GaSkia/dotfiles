@@ -1,4 +1,4 @@
 require("config.setup")
-require("config.lazy")
 require("config.colors")
+require("config.lazy")
 

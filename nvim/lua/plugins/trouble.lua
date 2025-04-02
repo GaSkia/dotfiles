@@ -8,6 +8,11 @@ return {
             "<cmd>Trouble diagnostics toggle<cr>",
             desc = "Diagnostics (Trouble)"
         },
+        {
+            -- FIX: fix auto_refresh 
+            "<leader>tt",
+            "<cmdTrouble todo toggle autorefresh=true<cr>",
+            desc = "Load todo list (Trouble)"
+        }
     },
-
 }
