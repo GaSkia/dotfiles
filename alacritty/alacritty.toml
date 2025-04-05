@@ -3,7 +3,7 @@
   bold = { family = "Fira Code" }
   italic = { family = "Fira Code" }
   bold_italic = { family = "Fira Code" } 
-  size = 7
+  size = 10
 
 [cursor]
   style = "Block"
