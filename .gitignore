@@ -50,7 +50,6 @@ Google
 Joplin
 Thunar
 VirtualBox
-alacritty
 blender
 cef_user_data
 dconf
@@ -87,3 +86,4 @@ hyprconfig/monitor.conf
 *.bak
 Code*
 
+nitrogen
