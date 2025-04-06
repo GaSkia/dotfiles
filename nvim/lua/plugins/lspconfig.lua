@@ -48,7 +48,7 @@ return {
                 '/home/gaskia/.local/share/nvim/mason/bin/csharp-ls'
             }
         }
-        lspconfig.omnisharp.setup{}
+        -- lspconfig.omnisharp.setup{}
         lspconfig.sqls.setup{}
     end,
 }
