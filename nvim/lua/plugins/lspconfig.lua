@@ -12,7 +12,9 @@ return {
                 completion = true,
             },
             omnisharp = {},
-            rust_analyzer = {},
+            rust_analyzer = {
+                completion = true,
+            },
         },
         -- setup = {},
     },
