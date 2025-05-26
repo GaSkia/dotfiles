@@ -14,7 +14,9 @@ vim.diagnostic.config({
        source = "always",
    },
 })
-
-vim.opt.colorcolumn = "80"
 vim.keymap.set('n', '<leader>ne', function() vim.diagnostic.goto_next() end)
 vim.keymap.set('n', '<leader>pe', function() vim.diagnostic.goto_prev() end)
+vim.opt.mouse = ""
+vim.keymap.set('v', '<C-C>', "\"+y")
+vim.keymap.set('n', '<C-V>', "\"*P")
+
