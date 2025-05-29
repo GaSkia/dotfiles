@@ -38,7 +38,6 @@ return {
                     "tailwindcss",
                     "lua_ls",
                     "csharp_ls",
-                    "omnisharp",
                 },
                 automatic_installation = true,
             })

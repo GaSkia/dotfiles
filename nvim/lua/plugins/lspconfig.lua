@@ -1,7 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     opts = {
-        inlay_hints = { enabled = true },
+        -- inlay_hints = { enabled = true },
         servers = {
             pyright = {},
             html = {},
@@ -47,8 +47,10 @@ return {
         lspconfig.lua_ls.setup{}
         lspconfig.csharp_ls.setup{
             cmd = {
-                '/home/gaskia/.dotnet/dotnet',
-                '/home/gaskia/.local/share/nvim/mason/bin/csharp-ls'
+                -- vim.env.DOTNET_ROOT .. 'dotnet',
+                -- 'run',
+                '/home/gaskia/.local/share/nvim/mason/packages/csharp-language-server/csharp-ls'
+
             }
         }
         -- lspconfig.omnisharp.setup{}

@@ -9,7 +9,6 @@ return {
 		"hrsh7th/cmp-path",
 	},
 
-    enabled = false,
 --	opts = function()
 --		local cmp = require("cmp")
 --
