@@ -41,10 +41,30 @@ return {
                 },
             },
         })
-        lspconfig.ts_ls.setup{}
+        lspconfig.ts_ls.setup({
+            init_options = {
+                typescript = {
+                    format = {
+                        insertSpaceBeforeFunctionParenthesis = true,
+                        tabSize = 2,
+                    },
+                },
+                javascript = {
+                    format = {
+                        insertSpaceBeforeFunctionParenthesis = true,
+                        tabSize = 2,
+                    },
+                },
+                project = {
+                    tabSize = 2
+                }
+            }
+
+        })
         lspconfig.clangd.setup{}
         lspconfig.cssls.setup{}
         lspconfig.lua_ls.setup{}
+        lspconfig.vue_ls.setup{}
         lspconfig.csharp_ls.setup{
             cmd = {
                 -- vim.env.DOTNET_ROOT .. 'dotnet',
