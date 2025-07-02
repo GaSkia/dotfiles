@@ -18,3 +18,11 @@ vim.keymap.set('n', '<leader>ne', function() vim.diagnostic.goto_next() end)
 vim.keymap.set('n', '<leader>pe', function() vim.diagnostic.goto_prev() end)
 -- vim.opt.mouse = ""
 
+vim.opt.colorcolumn = '80'
+vim.api.nvim_create_autocmd('FileType', 
+{
+    pattern = 'python',
+    callback = function()
+        vim.opt.colorcolumn = '80'
+    end,
+})
