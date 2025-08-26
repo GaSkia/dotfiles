@@ -9,6 +9,7 @@ return{
             "ron",
             "javascript",
             "c_sharp",
+            'xml',
         },
         highlight = { enable = true },
         incremental_selection = { enable = true },

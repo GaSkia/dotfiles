@@ -38,6 +38,7 @@ return {
                     "tailwindcss",
                     "lua_ls",
                     "csharp_ls",
+                    "lemminx",
                 },
                 automatic_installation = true,
             })

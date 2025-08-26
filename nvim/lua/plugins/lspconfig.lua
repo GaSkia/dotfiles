@@ -2,6 +2,9 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
         -- inlay_hints = { enabled = true },
+        function()
+            
+        end,
         servers = {
             pyright = {},
             html = {},
@@ -15,6 +18,7 @@ return {
             rust_analyzer = {
                 completion = true,
             },
+            lemminx = {},
         },
         -- setup = {},
     },
