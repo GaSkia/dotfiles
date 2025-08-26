@@ -92,3 +92,11 @@ Code*
 remmina
 nitrogen
 bluetuith
+.avalonia-build-tasks/
+gnome-xdg-terminals.list
+inkscape/
+monitors.xml
+monitors.xml~
+unityhub/
+xdg-terminals.list
+
