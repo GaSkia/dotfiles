@@ -31,6 +31,7 @@ vim.keymap.set('n', '<leader>cf', function () vim.lsp.buf.format({ async = false
 -- vim.opt.mouse = ""
 
 vim.opt.colorcolumn = '80'
+
 vim.api.nvim_create_autocmd('FileType',
 {
     pattern = 'python',
@@ -38,7 +39,23 @@ vim.api.nvim_create_autocmd('FileType',
         vim.opt.colorcolumn = '80'
     end,
 })
+
+vim.api.nvim_create_autocmd('FileType',
+{
+    pattern = 'typescriptreact',
+    callback = function()
+        vim.o.tabstop = 2
+        vim.o.softtabstop = 2
+        vim.o.shiftwidth = 2
+        vim.opt.colorcolumn = '80'
+    end,
+})
+
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     pattern = "*.uxml",
     command = "set filetype=xml"
+})
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+    pattern = "*.uss",
+    command = "set filetype=css"
 })

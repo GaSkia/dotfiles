@@ -10,6 +10,7 @@ return{
             "javascript",
             "c_sharp",
             'xml',
+            'css'
         },
         highlight = { enable = true },
         incremental_selection = { enable = true },

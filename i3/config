@@ -27,7 +27,7 @@ exec --no-startup-id dex --autostart --environment i3
 # exec --no-startup-id nitrogen --force-setter=xinerama --head=xin_1 --set-auto ~/.config/i3/perfect-blue_1920x1080.png --save
 # exec --no-startup-id nitrogen --force-setter=xinerama --head=xin_0 --set-auto ~/.config/i3/perfect-blue_1280x1024.png --save
 
-exec --no-startup-id xwallpaper --output DP-2 --center ~/.config/i3/perfect-blue_1920x1080.png --output DP-0 --center ~/.config/i3/perfect-blue_1280x1024.png
+exec --no-startup-id xwallpaper --output DP-0 --center ~/.config/i3/perfect-blue_1920x1080.png --output DP-2 --center ~/.config/i3/perfect-blue_1280x1024.png
 
 # Enable for logging
 # exec i3 --shmolg-size=26214400
@@ -49,8 +49,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-bindsym --release XF86AudioPlay exec --no-startup-id playerctl next
-bindsym --release XF86AudioNext exec --no-startup-id playerctl play-pause
+bindsym --release XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym --release XF86AudioNext exec --no-startup-id playerctl next
 bindsym --release XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -199,6 +199,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 bindsym $mod+v exec pavucontrol
 for_window [title="Volume Control"] floating enable
+for_window [title="Emulator"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -207,8 +208,13 @@ for_window [title="Volume Control"] floating enable
 # }
 gaps inner 10
 gaps outer 15
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 3
 
 exec --no-startup-id picom -b
 exec --no-startup-id polybar
 
+# Default workspace behavior
+for_window [title="spotify"] 3
+for_window [title="Spotify"] 3
+for_window [title="Spotify Premium"] 3
+assign [class="unityhub"] 3

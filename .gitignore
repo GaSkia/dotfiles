@@ -89,7 +89,7 @@ rncbc.org*
 hyprconfig/monitor.conf
 *.bak
 Code*
-remmina
+remmina/*
 nitrogen
 bluetuith
 .avalonia-build-tasks/
@@ -99,4 +99,11 @@ monitors.xml
 monitors.xml~
 unityhub/
 xdg-terminals.list
-
+nvim/lazy-lock.json
+autostart/
+caja/
+freerdp/
+hypr.bak2/
+kritadisplayrc
+kritarc
+mate/
