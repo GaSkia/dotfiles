@@ -215,7 +215,5 @@ exec --no-startup-id picom -b
 exec --no-startup-id polybar
 
 # Default workspace behavior
-for_window [title="spotify"] 3
-for_window [title="Spotify"] 3
-for_window [title="Spotify Premium"] 3
+for_window [class="Spotify"] move to workspace $ws3
 assign [class="unityhub"] 3
