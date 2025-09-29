@@ -198,6 +198,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 bindsym $mod+v exec pavucontrol
+bindsym $mod+m exec spotify-launcher
 for_window [title="Volume Control"] floating enable
 for_window [title="Emulator"] floating enable
 
