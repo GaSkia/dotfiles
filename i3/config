@@ -21,5 +21,5 @@ for_window [class=".*"] border pixel 3
 exec --no-startup-id picom -b
 exec --no-startup-id ~/bin/polybar.launch.sh
 
-for_window [class="Spotify"] move to workspace $ws3
+for_window [class="Spotify"] move to workspace 3
 assign [class="unityhub"] 3
