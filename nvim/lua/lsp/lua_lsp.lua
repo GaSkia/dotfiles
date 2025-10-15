@@ -83,3 +83,11 @@ vim.lsp.config('pyright', {
 })
 
 vim.lsp.enable('pyright')
+
+vim.lsp.config('docker_language_server', {
+    cmd = { 'docker-language-server', 'start', '--stdio' },
+    filetypes = { 'docker', 'yaml', 'docker-compose.yml', 'Dockerfile', },
+})
+
+vim.lsp.enable('docker_language_server')
+
