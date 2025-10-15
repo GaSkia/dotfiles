@@ -1,4 +1,5 @@
 nvim/lazy-lock.json
+lspconfig.lua.old
 cra*
 tmux
 aseprite
