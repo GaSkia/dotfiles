@@ -69,7 +69,7 @@ vim.lsp.config('pyright', {
                 autoSearchPaths = true,
                 diagnosticMode = 'workspace',
                 logLevel = "Information",
-                typeCheckingMode = 'strict',
+                typeCheckingMode = 'standard',
                 useLibraryCodeForTypes = true,
             },
         },
@@ -91,3 +91,40 @@ vim.lsp.config('docker_language_server', {
 
 vim.lsp.enable('docker_language_server')
 
+vim.lsp.config('rust-analyzer', {
+    cmd = {'rust-analyzer'},
+    filetypes = {'rust'},
+    settings = {
+        rust_analyzer = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+})
+vim.lsp.enable('rust-analyzer')
+
+vim.lsp.config('postgres_lsp', {
+    cmd = {"postgrestools", "lsp-proxy" },
+    filetypes = {"sql"},
+    root_markers = {"postgrestools.jsonc"},
+
+})
+vim.lsp.enable('postgres_lsp')
+
+vim.lsp.config('csharp_ls', {
+    cmd = {'/home/gaskia/.local/share/nvim/mason/packages/csharp-language-server/csharp-ls'},
+    filetypes = {'cs'},
+})
+vim.lsp.enable('csharp_ls')
