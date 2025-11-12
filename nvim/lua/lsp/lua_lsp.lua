@@ -8,6 +8,12 @@ vim.lsp.config('lua_ls', {
         Lua = {
             runtime = {
                 version = 'LuaJIT',
+            },
+            diagnostics = {
+                globals = { 'vim' },
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
             }
         }
     }
@@ -126,5 +132,79 @@ vim.lsp.enable('postgres_lsp')
 vim.lsp.config('csharp_ls', {
     cmd = {'/home/gaskia/.local/share/nvim/mason/packages/csharp-language-server/csharp-ls'},
     filetypes = {'cs'},
+    root_markers = { {"sln", "csproj"}, "git" },
+    settings = {
+        csharp = {
+            formatting = {
+                enabled = true,
+            },
+            diagnostics = {
+                enable = true,
+            }
+        }
+    },
+    on_attach = function(client, bufnr)
+        vim.opt.colorcolumn = '120'
+    end,
+    on_detach = function(client, bufnr)
+        vim.opt.colorcolumn = '80'
+    end,
 })
 vim.lsp.enable('csharp_ls')
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    pattern = "*.axaml",
+    command = "set filetype=xml"
+})
+-- vim.lsp.config('lemminx', {
+--     cmd = {"lemminx"},
+--     filetypes = {'xaml', 'xml'} --, 'axaml'}
+-- })
+-- INFO: lemminx is not enabled
+-- vim.lsp.enable('lemminx')
+
+vim.lsp.config('avalonia-ls', {
+    cmd = {'avalonia-ls'},
+    root_dir = vim.fn.getcwd(),
+    filetypes = { 'axaml' },
+    on_attach = function(client, bufnr)
+        vim.o.tabstop = 2
+        vim.o.softtabstop = 2
+        vim.o.shiftwidth = 2
+        vim.opt.colorcolumn = '0'
+    end,
+    on_detach = function(client, bufnr)
+    end,
+})
+vim.lsp.enable('avalonia-ls')
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+	pattern = { "*.axaml" },
+	callback = function(event)
+		vim.lsp.start {
+			name = "avalonia",
+			cmd = { "avalonia-ls" },
+			root_dir = vim.fn.getcwd(),
+		}
+	end
+})
+vim.filetype.add({
+	extension = {
+		axaml = "xml",
+	},
+})
+-- TODO: implement linters and formatters for every language-server
+vim.lsp.config('clang-format', {
+    cmd = { 'clang-format',  },
+    root_dir = vim.fn.getcwd(),
+    root_markers = { 'git', { 'sln', 'csproj' }, },
+    filetypes = { 'cs', 'cpp', 'c'},
+})
+vim.lsp.enable('clang-format')
+vim.lsp.config('ast_grep', {
+    cmd = { 'ast-grep' },
+    root_dir = vim.fn.getcwd(),
+    root_markers = { 'git', { 'sln', 'csproj' }, },
+    filetypes = { 'cs', 'cpp', 'c'},
+
+})
+vim.lsp.enable('ast-grep')
