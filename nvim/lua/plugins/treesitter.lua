@@ -10,13 +10,14 @@ return{
             "javascript",
             "c_sharp",
             'xml',
-            'css'
+            'css',
+            'gdscript',
         },
         highlight = { enable = true },
         incremental_selection = { enable = true },
         indent = { enable = true },
     },
-    config = function(_, opts)
-        require('nvim-treesitter.configs').setup(opts)
-    end,
+    -- config = function(_, opts)
+    --     require('nvim-treesitter.configs').setup(opts)
+    -- end,
 }

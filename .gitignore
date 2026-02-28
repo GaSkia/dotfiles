@@ -112,3 +112,13 @@ kritarc
 mate/
 totem/*
 droidcam
+.android/
+REAPER/
+ardour8/
+dolphinrc
+fontconfig/
+kgammarc
+kscreenlockerrc
+spectaclerc
+trashrc
+
