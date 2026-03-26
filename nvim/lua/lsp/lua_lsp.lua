@@ -97,9 +97,14 @@ vim.lsp.config('docker_language_server', {
 
 vim.lsp.enable('docker_language_server')
 
-vim.lsp.config('rust-analyzer', {
+vim.lsp.config('rust_analyzer', {
     cmd = {'rust-analyzer'},
     filetypes = {'rust'},
+    root_markers = {
+        "main.rs",
+         "src",
+         "git"
+    },
     settings = {
         rust_analyzer = {
             imports = {
@@ -116,10 +121,21 @@ vim.lsp.config('rust-analyzer', {
             procMacro = {
                 enable = true
             },
-        }
+        },
+        tools = {
+            runnables = {
+                use_telescope = true,
+            },
+            inlay_hints = {
+                auto = true,
+                show_parameter_hints = true,
+                parameter_hints_prefix = "#",
+                other_hints_prefix = "##",
+            },
+        },
     }
 })
-vim.lsp.enable('rust-analyzer')
+vim.lsp.enable('rust_analyzer')
 
 vim.lsp.config('postgres_lsp', {
     cmd = {"postgrestools", "lsp-proxy" },
@@ -218,4 +234,5 @@ vim.lsp.config('gdscript', {
     root_markers = { 'project.godot', '.git'},
 })
 vim.lsp.enable('gdscript')
+
 

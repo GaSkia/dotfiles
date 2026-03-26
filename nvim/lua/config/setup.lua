@@ -7,12 +7,15 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.diagnostic.config({
-   virtual_text = false,
-   always = true,
-   float = {
-       border = "rounded",
-       source = "always",
-   },
+    underline = true,
+    virtual_text = false,
+    virtual_lines = true,
+    always = true,
+    float = {
+        severity_sort = true,
+        border = "rounded",
+        source = true,
+    },
 })
 vim.keymap.set('n', '<leader>ne', function() vim.diagnostic.jump({count=1, float=true}) end)
 vim.keymap.set('n', '<leader>pe', function() vim.diagnostic.jump({count=-1, float=true}) end)
@@ -28,10 +31,7 @@ vim.keymap.set('n', '<leader>9', '<cmd>tabn 9<CR>')
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
 vim.keymap.set('n', '<leader>cf', function () vim.lsp.buf.format({ async = false }) end)
-local on_list =  function(options)
-    vim.fn.setqflist({}, ' ', options)
-    vim.cmd.cfirst()
-end
+
 vim.keymap.set('n', 'fR', function() vim.lsp.buf.references() end)
 -- vim.opt.mouse = ""
 
