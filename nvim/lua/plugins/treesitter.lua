@@ -1,5 +1,6 @@
 return{
 	"nvim-treesitter/nvim-treesitter",
+    branch = 'master',
 	build = ":TSUpdate",
     opts = {
         ensure_installed = {
@@ -18,6 +19,6 @@ return{
         indent = { enable = true },
     },
     config = function(_, opts)
-        require('nvim-treesitter.config').setup(opts)
+        require('nvim-treesitter.configs').setup(opts)
     end,
 }
