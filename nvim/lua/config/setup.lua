@@ -1,4 +1,4 @@
-vim.g.mapleader = ';'
+vim.g.mapleader = ' '
 
 vim.o.number = true
 vim.o.relativenumber = true
@@ -37,11 +37,35 @@ vim.keymap.set('n', 'fR', function() vim.lsp.buf.references() end)
 
 vim.opt.colorcolumn = '80'
 
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = {
+        "c",
+        "python",
+        "rust",
+        "ron",
+        "javascript",
+        "c_sharp",
+        'xml',
+        'css',
+        'gdscript',
+    },
+    callback = function()
+        vim.treesitter.start()
+        vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        vim.wo.foldmethod = 'expr'
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end,
+
+})
 vim.api.nvim_create_autocmd('FileType',
 {
     pattern = 'python',
     callback = function()
         vim.opt.colorcolumn = '80'
+        vim.treesitter.start()
+        vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        vim.wo.foldmethod = 'expr'
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end,
 })
 

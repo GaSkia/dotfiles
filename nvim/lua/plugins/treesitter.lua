@@ -1,9 +1,10 @@
 return{
 	"nvim-treesitter/nvim-treesitter",
-    branch = 'master',
+    lazy = false,
 	build = ":TSUpdate",
-    opts = {
-        ensure_installed = {
+    config = function(_, opts)
+        local ts = require('nvim-treesitter')
+        ts.install  {
             "c",
             "python",
             "rust",
@@ -12,13 +13,10 @@ return{
             "c_sharp",
             'xml',
             'css',
-            'gdscript',
-        },
-        highlight = { enable = true },
-        incremental_selection = { enable = true },
-        indent = { enable = true },
-    },
-    config = function(_, opts)
-        require('nvim-treesitter.configs').setup(opts)
+            'gdscript'
+        }
+        -- ts.highlight = { enable = true },
+        -- incremental_selection = { enable = true },
+        -- indent = { enable = true },
     end,
 }
