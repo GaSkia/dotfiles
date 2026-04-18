@@ -31,6 +31,8 @@ vim.keymap.set('n', '<leader>9', '<cmd>tabn 9<CR>')
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
 vim.keymap.set('n', '<leader>cf', function () vim.lsp.buf.format({ async = false }) end)
+vim.keymap.set('i', '<C-BS>', "<C-w>")
+vim.keymap.set('i', '<C-H>', "<C-w>")
 
 vim.keymap.set('n', 'fR', function() vim.lsp.buf.references() end)
 -- vim.opt.mouse = ""

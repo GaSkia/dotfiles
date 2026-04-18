@@ -48,6 +48,10 @@
     cyan =    "#ea9a97"
     white =   "#e0def4"
 
+[keyboard]
+    bindings = [
+        { key = "Backspace", mods = "Control", chars = "\x17"}
+    ]
 # [terminal.shell]
 #     program = "/usr/bin/tmux"
 #     args = [ "new-session"] # ,"-A", "-D", "-s",  "main" 

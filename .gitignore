@@ -125,3 +125,6 @@ trashrc
 
 hypr/monitor.conf
 nwg-look
+.keymapp
+ardour*
+wally
