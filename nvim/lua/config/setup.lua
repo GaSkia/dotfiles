@@ -6,6 +6,7 @@ vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
+vim.o.foldenable = false
 vim.diagnostic.config({
     underline = true,
     virtual_text = false,
@@ -31,6 +32,7 @@ vim.keymap.set('n', '<leader>9', '<cmd>tabn 9<CR>')
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
 vim.keymap.set('n', '<leader>cf', function () vim.lsp.buf.format({ async = false }) end)
+vim.keymap.set('n', '<leader>df', vim.lsp.buf.definition)
 vim.keymap.set('i', '<C-BS>', "<C-w>")
 vim.keymap.set('i', '<C-H>', "<C-w>")
 
