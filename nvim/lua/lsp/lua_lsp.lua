@@ -235,4 +235,8 @@ vim.lsp.config('gdscript', {
 })
 vim.lsp.enable('gdscript')
 
-
+vim.lsp.config('clangd', {
+    cmd = { 'clangd' },
+    filetypes = {'c', 'cpp'}
+})
+vim.lsp.enable('clangd')
