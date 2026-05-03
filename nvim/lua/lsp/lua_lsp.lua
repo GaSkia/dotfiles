@@ -85,7 +85,10 @@ vim.lsp.config('pyright', {
             disableTaggedHints = false,
             openFilesOnly = false
         }
-    }
+    },
+    on_attach = function(client, bufnr)
+        require "lsp_signature".on_attach(signature_setup, bufnr)
+    end,
 })
 
 vim.lsp.enable('pyright')

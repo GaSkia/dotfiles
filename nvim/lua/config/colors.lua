@@ -19,6 +19,9 @@ function ColorMeMaster(color)
         underdotted = true,
         undercurl = false,
     })
+    vim.api.nvim_set_hl(0, 'LineNrAbove', {fg='#a9b1d6', bold=false})
+    vim.api.nvim_set_hl(0, 'LineNr', {fg='#c0caf5', bold=true})
+    vim.api.nvim_set_hl(0, 'LineNrBelow', {fg='#a9b1d6', bold=false})
 end
 
 ColorMeMaster()
