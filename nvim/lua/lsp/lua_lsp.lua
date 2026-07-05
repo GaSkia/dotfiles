@@ -1,3 +1,12 @@
+local data_dir = ""
+
+if vim.fn.has("win32") == 1 then
+    data_dir = vim.fn.expand("~") .. "/AppData/Local/nvim-data"
+else 
+    data_dir = vim.fn.expand("~") .. "/.local/share/nvim"
+end
+
+local mason_dir = data_dir .. "/mason/bin/"
 vim.lsp.config('lua_ls', {
     cmd = { 'lua-language-server' },
     filetypes = { 'lua' },
@@ -18,6 +27,7 @@ vim.lsp.config('lua_ls', {
         }
     }
 })
+
 vim.lsp.enable('lua_ls')
 
 vim.lsp.config('ts_ls', {
@@ -86,9 +96,9 @@ vim.lsp.config('pyright', {
             openFilesOnly = false
         }
     },
-    on_attach = function(client, bufnr)
-        require "lsp_signature".on_attach(signature_setup, bufnr)
-    end,
+    -- on_attach = function(client, bufnr)
+    --     require "lsp_signature".on_attach(signature_setup, bufnr)
+    -- end,
 })
 
 vim.lsp.enable('pyright')
@@ -148,28 +158,6 @@ vim.lsp.config('postgres_lsp', {
 })
 vim.lsp.enable('postgres_lsp')
 
-vim.lsp.config('csharp_ls', {
-    cmd = {'/home/gaskia/.local/share/nvim/mason/packages/csharp-language-server/csharp-ls'},
-    filetypes = {'cs'},
-    root_markers = { {"sln", "csproj"}, "git" },
-    settings = {
-        csharp = {
-            formatting = {
-                enabled = true,
-            },
-            diagnostics = {
-                enable = true,
-            }
-        }
-    },
-    on_attach = function(client, bufnr)
-        vim.opt.colorcolumn = '120'
-    end,
-    on_detach = function(client, bufnr)
-        vim.opt.colorcolumn = '80'
-    end,
-})
-vim.lsp.enable('csharp_ls')
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     pattern = "*.axaml",
@@ -243,3 +231,27 @@ vim.lsp.config('clangd', {
     filetypes = {'c', 'cpp'}
 })
 vim.lsp.enable('clangd')
+
+vim.lsp.config('qmlls', {
+    cmd = {mason_dir .. "qmlls", "-E", "-I", "/usr/lib/qt6/qml"},
+    root_markers =  { ".ini", "shell.qml"},
+    filetypes = { 'qml'}
+})
+vim.lsp.enable('qmlls')
+
+-- csharp
+vim.lsp.config("roslyn", {
+    on_attach = function()
+        vim.opt.colorcolumn = "120"
+    end,
+    settings = {
+        ["csharp|inlay_hints"] = {
+            csharp_enable_inlay_hints_for_implicit_object_creation = true,
+            csharp_enable_inlay_hints_for_implicit_variable_types = true,
+        },
+        ["csharp|code_lens"] = {
+            dotnet_enable_references_code_lens = true,
+        },
+    }
+})
+vim.lsp.enable("roslyn")

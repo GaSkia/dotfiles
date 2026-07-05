@@ -10,8 +10,8 @@ return {
         },
         {
             -- FIX: fix auto_refresh 
-            "<leader>d",
-            "<cmdTrouble todo toggle autorefresh=true<cr>",
+            "<leader>qf",
+            "<cmd>Trouble todo toggle autorefresh=true<cr>",
             desc = "Load todo list (Trouble)"
         }
     },

@@ -37,7 +37,7 @@ return {
                     "cssls",
                     "tailwindcss",
                     "lua_ls",
-                    "csharp_ls",
+                    "roslyn-language-server",
                     "lemminx",
                 },
                 automatic_installation = true,

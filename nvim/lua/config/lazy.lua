@@ -13,7 +13,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
-vim.opt.undodir = { os.getenv('HOME') .. '/.nvim/undodir' }
+vim.opt.undodir = { vim.env.HOME .. '/.nvim/undodir' }
 vim.opt.undofile = true
 
 vim.g.maplocalleader = "\\"
