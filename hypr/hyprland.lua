@@ -33,6 +33,12 @@ hl.config({
     }
 })
 
+hl.config({
+    xwayland = {
+        enabled = true
+    }
+})
+hl.bind("ALT + M",                                  hl.dsp.exec_cmd("pkill waybar; waybar &"))
 hl.bind(mainMod .. " + SHIFT + E",			        hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + R",			                hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P",			                hl.dsp.window.pseudo())
@@ -71,10 +77,16 @@ hl.bind("XF86AudioPause",                           hl.dsp.exec_cmd("playerctl p
 hl.bind("XF86AudioPlay",                            hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",                            hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
+
 for i = 1, 10 do
     local key = i % 10
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i}))
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i}))
+    if i % 2 == 1 then
+        hl.workspace_rule({ workspace = i, monitor = "DP-1"})
+    else
+        hl.workspace_rule({ workspace = i, monitor = "DP-2" })
+    end
 end
 
 -------------------------
@@ -200,4 +212,15 @@ hl.window_rule({
     },
     pseudo = true,
     size = {320, 640}
+})
+
+hl.workspace_rule({
+    default = true,
+    workspace = 2,
+    monitor = "DP-2"
+})
+
+hl.workspace_rule({
+    workspace = 3,
+    monitor = "DP-1"
 })
