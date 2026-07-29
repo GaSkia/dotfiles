@@ -1,3 +1,0 @@
-require('flutter-tools').setup {
-
-}
