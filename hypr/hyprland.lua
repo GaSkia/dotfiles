@@ -1,21 +1,22 @@
 ---@diagnostic disable: undefined-global
 hl.monitor({
-    output = "DP-2",
-    mode = "1280x1024@60",
+    output = "DP-1",
+    mode = "1920x1080@144",
     position = "0x0",
     scale = 1
 })
-
 hl.monitor({
-    output = "DP-1",
-    mode = "1920x1080@144",
-    position = "1280x0",
+    output = "DP-2",
+    mode = "1440x900@60",
+    position = "-1440x0",
     scale = 1
 })
 
 local terminal = 'alacritty'
 local menu = "hyprlauncher"
 local mainMod = "SUPER"
+local hyper = "ALT + SHIFT + CTRL + SUPER"
+local meh = "ALT + SHIFT + CTRL"
 local fileManager = "thunar"
 local browser = "librewolf"
 
@@ -38,32 +39,42 @@ hl.config({
         enabled = true
     }
 })
-hl.bind("ALT + M",                                  hl.dsp.exec_cmd("pkill waybar; waybar &"))
-hl.bind(mainMod .. " + SHIFT + E",			        hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + R",			                hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + F",                          hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + P",			                hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + SHIFT + CONTROL + ALT + S",  hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind(mainMod .. " + C",			                hl.dsp.window.close())
-hl.bind(mainMod .. " + SHIFT + C",	                hl.dsp.window.kill())
-hl.bind(mainMod .. " + M",			                hl.dsp.exec_cmd("spotify-launcher"))
-hl.bind(mainMod .. " + E",			                hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SPACE",		                hl.dsp.window.float({ action = "toggle" }) )
-hl.bind(mainMod .. " + B",			                hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + V",			                hl.dsp.exec_cmd("pavucontrol"))
 hl.bind(mainMod .. " + l",			                hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + h",			                hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + k",			                hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + j",			                hl.dsp.focus({ direction = "down" }))
-hl.bind(mainMod .. " + RETURN",                     hl.dsp.exec_cmd("~/bin/alacritty.sh"))
 hl.bind(mainMod .. " + mouse:272",                  hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273",                  hl.dsp.window.resize(), { mouse = true })
 hl.bind(mainMod .. " + S",                          hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S",                  hl.dsp.window.move({ workspace = "special:magic" }))
 hl.bind(mainMod .. " +  TAB",                       hl.dsp.window.cycle_next({""}))
-hl.bind("ALT + l",			                        hl.dsp.window.swap({ direction = "right" }))
-hl.bind("ALT + h",			                        hl.dsp.window.swap({ direction = "left" }))
-hl.bind("ALT + k",			                        hl.dsp.window.swap({ direction = "up" }))
-hl.bind("ALT + j",			                        hl.dsp.window.swap({ direction = "down" }))
+hl.bind(meh .. " + S",  hl.dsp.exec_cmd("hyprshot -m region"))
+hl.bind(meh .. " + C",	                hl.dsp.window.kill())
+hl.bind(meh .. " + l",			                        hl.dsp.window.swap({ direction = "right" }))
+hl.bind(meh .. " + h",			                        hl.dsp.window.swap({ direction = "left" }))
+hl.bind(meh .. " + k",			                        hl.dsp.window.swap({ direction = "up" }))
+hl.bind(meh .. " + j",			                        hl.dsp.window.swap({ direction = "down" }))
+hl.bind("SUPER + X", function ()
+    if hl.get_workspace("special:minimized") then
+        hl.dispatch(hl.dsp.window.move({ workspace = hl.get_active_workspace(), window = "tag:minimized" }))
+        hl.dispatch(hl.dsp.window.clear_tags({ window = "tag:minimized" }))
+    else
+        hl.dispatch(hl.dsp.window.tag({ tag = "minimized", window = hl.get_active_window() }))
+        hl.dispatch(hl.dsp.window.move({ workspace = "special:minimized", follow = false }))
+    end
+end)
+
+hl.bind(hyper .. " + T",                     hl.dsp.exec_cmd("~/bin/alacritty.sh"))
+hl.bind(hyper .. " + E",			                hl.dsp.exec_cmd(fileManager))
+hl.bind(hyper .. " + B",			                hl.dsp.exec_cmd(browser))
+hl.bind(hyper .. " + M",			                hl.dsp.exec_cmd("spotify-launcher"))
+hl.bind(hyper .. " + V",			                hl.dsp.exec_cmd("pavucontrol"))
+hl.bind(hyper .. " + E",			        hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(hyper .. " + R",			                hl.dsp.exec_cmd(menu))
 
 hl.bind("XF86AudioRaiseVolume",                     hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume",                     hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
@@ -82,11 +93,6 @@ for i = 1, 10 do
     local key = i % 10
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i}))
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i}))
-    if i % 2 == 1 then
-        hl.workspace_rule({ workspace = i, monitor = "DP-1"})
-    else
-        hl.workspace_rule({ workspace = i, monitor = "DP-2" })
-    end
 end
 
 -------------------------
@@ -217,10 +223,8 @@ hl.window_rule({
 hl.workspace_rule({
     default = true,
     workspace = 2,
-    monitor = "DP-2"
 })
 
 hl.workspace_rule({
     workspace = 3,
-    monitor = "DP-1"
 })
