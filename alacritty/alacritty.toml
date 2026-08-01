@@ -13,7 +13,7 @@
   history = 2000
 
 [window]
-  opacity = 0.8
+  opacity = 0.7
 
 [selection]
   save_to_clipboard = true
@@ -52,9 +52,3 @@
     bindings = [
         { key = "Backspace", mods = "Control", chars = "\x17"}
     ]
-# [terminal.shell]
-#     program = "/usr/bin/tmux"
-#     args = [ "new-session"] # ,"-A", "-D", "-s",  "main" 
-
-# Note = Keybindings, tabs, layouts, and window management features from Kitty are not supported directly in Alacritty.
-# Use tmux or another terminal multiplexer for advanced layout functionality.
