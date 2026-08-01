@@ -21,6 +21,8 @@ vim.diagnostic.config({
 -- vim.opt.mouse = ""
 
 vim.opt.colorcolumn = '80'
+vim.opt.scrolloff = 8
+
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
