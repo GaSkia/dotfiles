@@ -1,10 +1,10 @@
-
 local menu = "hyprlauncher"
 local mainMod = "SUPER"
 local hyper = "ALT + SHIFT + CTRL + SUPER"
 local meh = "ALT + SHIFT + CTRL"
 local fileManager = "thunar"
 local browser = "librewolf"
+
 hl.bind(mainMod .. " + F",                          hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + P",			                hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + C",			                hl.dsp.window.close())
