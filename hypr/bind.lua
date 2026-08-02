@@ -41,6 +41,7 @@ hl.bind(hyper .. " + M",			                hl.dsp.exec_cmd("spotify-launcher"))
 hl.bind(hyper .. " + V",			                hl.dsp.exec_cmd("pavucontrol"))
 hl.bind(hyper .. " + E",			        hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(hyper .. " + R",			                hl.dsp.exec_cmd(menu))
+hl.bind(hyper .. " + F",                            hl.dsp.exec_cmd("~/bin/ranger.sh"))
 
 hl.bind("XF86AudioRaiseVolume",                     hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume",                     hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
