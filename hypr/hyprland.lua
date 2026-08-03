@@ -1,8 +1,7 @@
-
+require('common');
+require('remap');
 require('animations');
 require('monitors');
-require('remap');
-
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("waybar & hyprpaper & librewolf")
@@ -23,9 +22,6 @@ hl.config({
     }
 })
 
--------------------------
------ LOOK AND FEEL -----
--------------------------
 hl.config({
     general = {
         gaps_in = 5,
