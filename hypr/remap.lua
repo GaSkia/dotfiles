@@ -36,3 +36,8 @@ hl.bind(Hyper .. " + V",			                hl.dsp.exec_cmd("pavucontrol"))
 hl.bind(Hyper .. " + E",			        hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(Hyper .. " + R",			                hl.dsp.exec_cmd(Menu))
 hl.bind(Hyper .. " + F",                            hl.dsp.exec_cmd("~/bin/ranger.sh"))
+for i = 1, 10 do
+    local key = i % 10 -- 10 maps to key 0
+    hl.bind(MainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+    hl.bind(MainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+end
