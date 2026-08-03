@@ -1,0 +1,6 @@
+Menu = "hyprlauncher"
+MainMod = "SUPER"
+Hyper = "ALT + SHIFT + CTRL + SUPER"
+Meh = "ALT + SHIFT + CTRL"
+FileManager = "thunar"
+Browser = "librewolf"
