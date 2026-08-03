@@ -1,7 +1,8 @@
 
 require('animations');
-require('bind');
 require('monitors');
+require('remap.default');
+require('remap.zsa');
 
 
 hl.on("hyprland.start", function()
