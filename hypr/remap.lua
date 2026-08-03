@@ -35,9 +35,13 @@ hl.bind(Hyper .. " + M",			                hl.dsp.exec_cmd("spotify-launcher"))
 hl.bind(Hyper .. " + V",			                hl.dsp.exec_cmd("pavucontrol"))
 hl.bind(Hyper .. " + E",			        hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(Hyper .. " + R",			                hl.dsp.exec_cmd(Menu))
-hl.bind(Hyper .. " + F",                            hl.dsp.exec_cmd("~/bin/ranger.sh"))
+hl.bind(Hyper .. " + F",                            hl.dsp.exec_cmd(XDG_CONFIG_HOME .. "/scripts/ranger.sh"))
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     hl.bind(MainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
     hl.bind(MainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
+
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +10%"))
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 10%-"))
+hl.bind("XF86MonBrightnessUp + XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 50%"))
