@@ -1,7 +1,6 @@
 
 require('animations');
 require('monitors');
-require('remap.default');
 require('remap.zsa');
 
 
