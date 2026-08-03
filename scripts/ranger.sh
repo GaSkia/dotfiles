@@ -14,5 +14,5 @@ elif [ -n "$name" ]; then
     alacritty -e tmux new-session -s "$name" ranger 
 
 else
-    alacritty -e tmux new-session -s "ranger-99" ranger
+    alacritty -e tmux new-session -s "ranger-1" ranger
 fi
