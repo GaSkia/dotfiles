@@ -1,0 +1,54 @@
+[font]
+  normal = { family = "Fira Code" }
+  bold = { family = "Fira Code" }
+  italic = { family = "Fira Code" }
+  bold_italic = { family = "Fira Code" } 
+  size = 10
+
+[cursor]
+  style = "Block"
+  blink_interval = 0
+
+[scrolling]
+  history = 2000
+
+[window]
+  opacity = 0.7
+
+[selection]
+  save_to_clipboard = true
+
+[mouse] 
+  hide_when_typing = true
+
+[colors.primary]
+    background = "#232136"
+    foreground = "#e0def4"
+ #   selection = { text = "#e0def4", background = '#44415a' }
+
+# cursor = { text = "#e0def4", cursor = '#56526e' }
+
+[colors.normal]
+    black =   "#393552"
+    red =     "#eb6f92"
+    green =   "#3e8fb0"
+    yellow =  "#f6c177"
+    blue =    "#9ccfd8"
+    magenta = "#c4a7e7"
+    cyan =    "#ea9a97"
+    white =   "#e0def4"
+
+[colors.bright]
+    black =   "#6e6a86"
+    red =     "#eb6f92"
+    green =   "#3e8fb0"
+    yellow =  "#f6c177"
+    blue =    "#9ccfd8"
+    magenta = "#c4a7e7"
+    cyan =    "#ea9a97"
+    white =   "#e0def4"
+
+[keyboard]
+    bindings = [
+        { key = "Backspace", mods = "Control", chars = "\x17"}
+    ]

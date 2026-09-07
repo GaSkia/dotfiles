@@ -1,0 +1,259 @@
+local data_dir = ""
+
+if vim.fn.has("win32") == 1 then
+    data_dir = vim.fn.expand("~") .. "/AppData/Local/nvim-data"
+else 
+    data_dir = vim.fn.expand("~") .. "/.local/share/nvim"
+end
+
+local mason_dir = data_dir .. "/mason/bin/"
+vim.lsp.config('lua_ls', {
+    cmd = { 'lua-language-server' },
+    filetypes = { 'lua' },
+    root_markers = {
+        { ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml", "selene.yml", ".git" }
+    },
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                globals = { 'vim' },
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+            }
+        }
+    }
+})
+
+vim.lsp.enable('lua_ls')
+
+vim.lsp.config('ts_ls', {
+    cmd = { 'typescript-language-server', '--stdio' },
+    filetypes = {
+        'typescript',
+        'typescriptreact',
+        'javascript',
+        'javascriptreact',
+    },
+    root_markers = {
+        "tsconfig.json",
+        "jsconfig.json",
+        "package.json",
+        ".git"
+    },
+    settings = {
+        initializationOptions = {
+            comletionDisableFilterText = false,
+            disableAutomaticTypingAcquisition = false,
+            maxTsServerMemory = 4096,
+            npmLocation = '/usr/bin/npm',
+            locale = 'en_us.UTF-8',
+            plugins = { },
+            preferences = { },
+            supporstMoveToFileCodeAction = {}
+        },
+
+        format = {
+            baseIndentSize = 2,
+            convertTabsToSpace = true,
+            indentSize = 2,
+            indentStyle = 'Block',
+            insertSpaceAfterCommaDelimiter = true,
+            insertSpaceAfterKeywordsInControlFlowStatements = true,
+        },
+        tsserver = {
+
+        }
+    }
+})
+
+vim.lsp.enable('ts_ls')
+
+vim.lsp.config('pyright', {
+    cmd = { 'pyright-langserver', '--stdio' },
+    filetypes = { 'python' },
+    root_markers = {
+        'main.py',
+        { 'src', 'app' },
+        '.git',
+    },
+    settings = {
+        python = {
+            analysis = {
+                autoImportCompletions = true,
+                autoSearchPaths = true,
+                diagnosticMode = 'workspace',
+                logLevel = "Information",
+                typeCheckingMode = 'standard',
+                useLibraryCodeForTypes = true,
+            },
+        },
+        pyright = {
+            disableLanguageServices = false,
+            disableOrganizeImports = false,
+            disableTaggedHints = false,
+            openFilesOnly = false
+        }
+    },
+    -- on_attach = function(client, bufnr)
+    --     require "lsp_signature".on_attach(signature_setup, bufnr)
+    -- end,
+})
+
+vim.lsp.enable('pyright')
+
+vim.lsp.config('docker_language_server', {
+    cmd = { 'docker-language-server', 'start', '--stdio' },
+    filetypes = { 'docker', 'yaml', 'docker-compose.yml', 'Dockerfile', },
+})
+
+vim.lsp.enable('docker_language_server')
+
+vim.lsp.config('rust_analyzer', {
+    cmd = {'rust-analyzer'},
+    filetypes = {'rust'},
+    root_markers = {
+        "main.rs",
+         "src",
+         "git"
+    },
+    settings = {
+        rust_analyzer = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        },
+        tools = {
+            runnables = {
+                use_telescope = true,
+            },
+            inlay_hints = {
+                auto = true,
+                show_parameter_hints = true,
+                parameter_hints_prefix = "#",
+                other_hints_prefix = "##",
+            },
+        },
+    }
+})
+vim.lsp.enable('rust_analyzer')
+
+vim.lsp.config('postgres_lsp', {
+    cmd = {"postgrestools", "lsp-proxy" },
+    filetypes = {"sql"},
+    root_markers = {"postgrestools.jsonc"},
+
+})
+vim.lsp.enable('postgres_lsp')
+
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    pattern = "*.axaml",
+    command = "set filetype=xml"
+})
+-- vim.lsp.config('lemminx', {
+--     cmd = {"lemminx"},
+--     filetypes = {'xaml', 'xml'} --, 'axaml'}
+-- })
+-- INFO: lemminx is not enabled
+-- vim.lsp.enable('lemminx')
+
+vim.lsp.config('avalonia-ls', {
+    cmd = {'avalonia-ls'},
+    root_dir = vim.fn.getcwd(),
+    filetypes = { 'axaml' },
+    on_attach = function(client, bufnr)
+        vim.o.tabstop = 2
+        vim.o.softtabstop = 2
+        vim.o.shiftwidth = 2
+        vim.opt.colorcolumn = '0'
+    end,
+    on_detach = function(client, bufnr)
+    end,
+})
+vim.lsp.enable('avalonia-ls')
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+	pattern = { "*.axaml" },
+	callback = function(event)
+		vim.lsp.start {
+			name = "avalonia",
+			cmd = { "avalonia-ls" },
+			root_dir = vim.fn.getcwd(),
+		}
+	end
+})
+vim.filetype.add({
+	extension = {
+		axaml = "xml",
+	},
+})
+-- TODO: implement linters and formatters for every language-server
+vim.lsp.config('clang-format', {
+    cmd = { 'clang-format',  },
+    root_dir = vim.fn.getcwd(),
+    root_markers = { 'git', 'sln', 'csproj', 'src' },
+    filetypes = { 'cs', 'cpp', 'c'},
+})
+vim.lsp.enable('clang-format')
+vim.lsp.config('ast_grep', {
+    cmd = { 'ast-grep' },
+    root_dir = vim.fn.getcwd(),
+    root_markers = { 'git', { 'sln', 'csproj' }, },
+    filetypes = { 'cs', 'cpp', 'c'},
+
+})
+vim.lsp.enable('ast-grep')
+
+local port = os.getenv 'GDScript_Port' or '6005'
+local cmd = vim.lsp.rpc.connect('127.0.0.1', tonumber(port))
+
+vim.lsp.config('gdscript', {
+    cmd = cmd,
+    filetypes = { 'gd', 'gdscript', 'gdscript3' },
+    root_markers = { 'project.godot', '.git'},
+})
+vim.lsp.enable('gdscript')
+
+vim.lsp.config('clangd', {
+    cmd = { 'clangd' },
+    filetypes = {'c', 'cpp'}
+})
+vim.lsp.enable('clangd')
+
+vim.lsp.config('qmlls', {
+    cmd = {mason_dir .. "qmlls6", "-E", "-I", "/usr/lib/qt6/qml"},
+    root_markers =  { ".ini", "shell.qml"},
+    filetypes = { 'qml'}
+})
+vim.lsp.enable('qmlls')
+
+-- csharp
+vim.lsp.config("roslyn", {
+    on_attach = function()
+        vim.opt.colorcolumn = "120"
+    end,
+    settings = {
+        ["csharp|inlay_hints"] = {
+            csharp_enable_inlay_hints_for_implicit_object_creation = true,
+            csharp_enable_inlay_hints_for_implicit_variable_types = true,
+        },
+        ["csharp|code_lens"] = {
+            dotnet_enable_references_code_lens = true,
+        },
+    }
+})
+vim.lsp.enable("roslyn")
