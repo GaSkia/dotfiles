@@ -1,0 +1,24 @@
+return {
+    "folke/trouble.nvim",
+    opts = {
+        win = {
+            wo = {
+                wrap = true,
+            },
+        },
+    },
+    cmd = "Trouble",
+    -- keys = {
+    --     {
+    --         "<leader>xx",
+    --         "<cmd>Trouble diagnostics toggle<cr>",
+    --         desc = "Diagnostics (Trouble)",
+    --     },
+    --     {
+    --         -- FIX: fix auto_refresh 
+    --         "<leader>qf",
+    --         "<cmd>Trouble todo toggle autorefresh=true<cr>",
+    --         desc = "Load todo list (Trouble)"
+    --     }
+    -- },
+}
