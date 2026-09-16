@@ -139,8 +139,8 @@ hl.window_rule({
     match = {
         class = "Emulator",
     },
-    pseudo = true,
-    size = {320, 640}
+    float = true,
+    size = {120, 440}
 })
 hl.window_rule({
     match = {
