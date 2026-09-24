@@ -1,5 +1,6 @@
 vim.g.mapleader = ' '
 
+vim.o.exrc = true
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.tabstop = 4
@@ -75,7 +76,7 @@ vim.api.nvim_create_autocmd('FileType',
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = "json",
+    pattern = {"json", "sql"},
     callback = function()
         vim.o.tabstop = 2
         vim.o.softtabstop = 2
