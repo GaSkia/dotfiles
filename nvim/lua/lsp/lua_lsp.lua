@@ -95,7 +95,8 @@ vim.lsp.config('pyright', {
             disableLanguageServices = false,
             disableOrganizeImports = false,
             disableTaggedHints = false,
-            openFilesOnly = false
+            openFilesOnly = false,
+            reportArgumentType = "off"
         }
     },
     -- on_attach = function(client, bufnr)
@@ -246,6 +247,8 @@ vim.lsp.config("roslyn", {
     on_attach = function()
         vim.opt.colorcolumn = "120"
     end,
+    cmd = { "roslyn-language-server", "--stdio" },
+    root_markers = {'.sln', '.csproj'},
     settings = {
         ["csharp|inlay_hints"] = {
             csharp_enable_inlay_hints_for_implicit_object_creation = true,
