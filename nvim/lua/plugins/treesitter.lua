@@ -10,6 +10,7 @@ return{
             "rust",
             "ron",
             "javascript",
+            "bash",
             "c_sharp",
             'xml',
             'css',

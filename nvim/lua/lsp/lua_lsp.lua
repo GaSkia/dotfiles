@@ -2,7 +2,7 @@ local data_dir = ""
 
 if vim.fn.has("win32") == 1 then
     data_dir = vim.fn.expand("~") .. "/AppData/Local/nvim-data"
-else 
+else
     data_dir = vim.fn.expand("~") .. "/.local/share/nvim"
 end
 
@@ -260,3 +260,10 @@ vim.lsp.config("roslyn", {
     }
 })
 vim.lsp.enable("roslyn")
+
+vim.lsp.config("bashls", {
+    cmd = { "bash-language-server", "start" },
+    filetypes = { "bash", "sh" }
+})
+
+vim.lsp.enable("bashls")
