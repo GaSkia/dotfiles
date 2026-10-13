@@ -4,9 +4,9 @@ require('animations');
 require('monitors');
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("waybar & hyprpaper & librewolf")
-    hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme Tokyoknight-Dark")
-    hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'Tokyoknight-Dark'")
+hl.exec_cmd("waybar & hyprpaper & librewolf")
+-- hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme Tokyoknight-Dark")
+-- hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'Tokyoknight-Dark'")
 end
 )
 
