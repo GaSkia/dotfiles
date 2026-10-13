@@ -8,6 +8,9 @@
 [cursor]
   style = "Block"
   blink_interval = 0
+[bell]
+duration = 0
+command = { program = "paplay", args = ["/usr/share/sounds/freedesktop/stereo/bell.oga"] }
 
 [scrolling]
   history = 2000
