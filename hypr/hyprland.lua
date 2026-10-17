@@ -5,6 +5,7 @@ require('monitors');
 
 hl.on("hyprland.start", function()
 hl.exec_cmd("waybar & hyprpaper & librewolf")
+-- hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 -- hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme Tokyoknight-Dark")
 -- hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'Tokyoknight-Dark'")
 end
@@ -121,11 +122,6 @@ hl.window_rule( {
     no_focus = true,
 })
 
-hl.window_rule({
-    name = "float-3",
-    float = true,
-    workspace = "3",
-})
 hl.window_rule( {
     name = "move-hyprland-run",
     match = {
@@ -159,12 +155,37 @@ hl.workspace_rule({
     workspace = "3",
 })
 
+hl.window_rule({
+    match = {
+        workspace = 3
+    },
+    float = true
+})
+
+hl.window_rule({
+    match = {
+        class = "discord"
+    },
+
+    size = "800 600",
+    move = "20 50"
+
+})
+
+hl.window_rule({
+    match = {
+        class = "org.pulseaudio.pavucontrol"
+    },
+    size = "1000 350",
+    move = "5 700"
+})
+
 hl.env("HYPRCURSOR_THEME", "Future-Cyan-Hyprcursor_Theme")
 hl.env("HYPRCURSOR_SIZE", 24)
 hl.env("XCURSOR_THEME", "Future-Cyan-Hyprcursor_Theme")
 hl.env("XCURSOR_SIZE", 24)
 hl.env("GDK_BACKEND", "wayland,x11,*")
-hl.env("QT_QPA_PLATFORM", "wayland,xcb")
+hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("SDL_VIDEODRIVER", "wayland")
 hl.env("CLUTTER_BACKEND", "wayland")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
