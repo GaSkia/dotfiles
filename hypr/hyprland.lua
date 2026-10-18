@@ -1,7 +1,14 @@
-require('common');
-require('remap');
-require('animations');
-require('monitors');
+require('common')
+require('remap')
+require('animations')
+require('monitors')
+
+local hosts = io.open('/etc/hostname')
+
+if hosts ~= nil then
+    local host = hosts:lines("*l")
+    require('devices.' .. host())
+end
 
 hl.on("hyprland.start", function()
 hl.exec_cmd("waybar & hyprpaper & librewolf")

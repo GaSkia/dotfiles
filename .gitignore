@@ -1,4 +1,9 @@
 plugins
 *lock*
+<<<<<<< Updated upstream
 nvim/lazy-lock.json
+=======
+monitors.lua
+hyprpaper.*
+>>>>>>> Stashed changes
 
