@@ -236,7 +236,7 @@ vim.lsp.config('clangd', {
 vim.lsp.enable('clangd')
 
 vim.lsp.config('qmlls', {
-    cmd = { "qmlls6", "-E", "-I", "/usr/lib/qt6/qml"},
+    cmd = { "qmlls6", "-E" },
     root_markers =  { ".ini", "shell.qml", "qmlls.ini"},
     filetypes = { 'qml' }
 })
