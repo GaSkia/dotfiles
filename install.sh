@@ -15,4 +15,5 @@ ln -s "$HOME/dotfiles/hypr" "$XDG_CONFIG_HOME/hypr"
 ln -s "$HOME/dotfiles/nvim" "$XDG_CONFIG_HOME/nvim"
 ln -s "$HOME/dotfiles/tmux" "$XDG_CONFIG_HOME/tmux"
 ln -s "$HOME/dotfiles/waybar" "$XDG_CONFIG_HOME/waybar"
+ln -s "$HOME/dotfiles/quickshell" "$XDG_CONFIG_HOME/quickshell"
 hyprctl reload

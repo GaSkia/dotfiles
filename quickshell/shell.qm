@@ -1,0 +1,82 @@
+import Quickshell
+import Quickshell.Hyprland
+import QtQuick
+import QtQuick.Layouts
+
+PanelWindow {
+    anchors {
+        top: true
+        left: true
+        bottom: true
+    }
+
+    implicitWidth: 32
+    color: "transparent"
+
+    ColumnLayout {
+        anchors.centerIn: parent
+        spacing: 6
+
+        Rectangle {
+            width: workspaceColumn.implicitWidth
+            height: workspaceColumn.implicitHeight
+            radius: height / 2
+            color: "blue"
+
+            Column {
+                id: workspaceColumn
+                spacing: 3
+
+                required property var modelData
+
+                Repeater {
+                    model: Hyprland.workspaces
+
+                    Rectangle {
+                        
+                        required property var modelData
+                        width: 20
+                        height: 20
+                        radius: height / 2
+                        color: modelData.focused ? "green":"red"
+                        visible: modelData.id > 0
+
+                        Text {
+                            text: modelData.name
+                            anchors.centerIn: parent
+                            font {
+                                weight: 600
+                                family: "Fira Code"
+                                pixelSize: 8
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        Rectangle {
+            color: "#1e1e2e"
+            implicitWidth: text.implicitWidth + 10
+            implicitHeight: text.implicitHeight + 20
+            radius: height / 2
+
+            Text {
+
+                SystemClock {
+                    id: clock
+                    precision: SystemClock.Minutes
+                }
+                anchors.centerIn: parent
+                color: "#fff"
+                id: text
+                text: Qt.formatDateTime(clock.date, "hh\nmm")
+                font {
+                    weight: 600
+                    family: "Fira Code"
+                }
+            }
+        }
+
+    }
+}
