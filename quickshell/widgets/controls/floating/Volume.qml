@@ -46,7 +46,7 @@ Scope {
 			Rectangle {
 				anchors.fill: parent
 				radius: height / 2
-				color: "#1e1e2e"
+				color: "#bb0b0e21"
 
 				RowLayout {
 					anchors {
@@ -66,10 +66,10 @@ Scope {
 
 						implicitHeight: 10
 						radius: 20
-						color: "#79a0f7"
+						color: "#1e1e2e"
 
 						Rectangle {
-                        color: "#8fabea"
+                        color: "#79a0f7"
 							anchors {
 								left: parent.left
 								top: parent.top
@@ -77,6 +77,7 @@ Scope {
 							}
 
 							implicitWidth: parent.width * (Pipewire.defaultAudioSink?.audio.volume ?? 0)
+
 							radius: parent.radius
 						}
 					}
