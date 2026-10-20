@@ -11,7 +11,7 @@ if hosts ~= nil then
 end
 
 hl.on("hyprland.start", function()
-hl.exec_cmd("waybar & hyprpaper & librewolf")
+hl.exec_cmd("qs & hyprpaper & librewolf & polychromatic-tray-applet")
 -- hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 -- hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme Tokyoknight-Dark")
 -- hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'Tokyoknight-Dark'")
