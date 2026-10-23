@@ -28,29 +28,30 @@ Row {
             height: 22
             radius: height / 2
             color: modelData.focused ? "#79a0f7" : "#1e1e2e"
+            visible: modelData.id > 0
 
             MouseArea {
                 anchors.fill: parent
                 acceptedButtons: Qt.LeftButton
                 onClicked: root.colorWorkspace(workspace.modelData)
 
-                onEntered: () => {
-                    if (!workspace.modelData.focused)
-                    workspace.color = "#bb1d1c"
-                    workspaceRepeater.model.foreach(item => {
-                        item.color= item.active ? "#79a0f7" : "#1e1e2e"
-                        console.log(item)
-                    })
-
-                }
-                hoverEnabled: true
-                onExited: () => {
-                    workspace.color = workspace.modelData.focused ? "#79a0f7" : "#1e1e2e"
-                    workspaceRepeater.model.foreach(item => {
-                        item.color= item.active ? "#79a0f7" : "#1e1e2e"
-                        console.log(item)
-                    })
-                }
+                // onEntered: () => {
+                //     if (!workspace.modelData.focused)
+                //     workspace.color = "#bb1d1c"
+                //     workspaceRepeater.model.foreach(item => {
+                //         item.color= item.active ? "#79a0f7" : "#1e1e2e"
+                //         console.log(item)
+                //     })
+                //
+                // }
+                // hoverEnabled: true
+                // onExited: () => {
+                //     workspace.color = workspace.modelData.focused ? "#79a0f7" : "#1e1e2e"
+                //     workspaceRepeater.model.foreach(item => {
+                //         item.color= item.active ? "#79a0f7" : "#1e1e2e"
+                //         console.log(item)
+                //     })
+                // }
             }
             Text {
                 id: workspaceText
