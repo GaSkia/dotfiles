@@ -4,7 +4,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source ~/bin/variables.sh
+# source ~/bin/variables.sh
 source ~/.zshenv.sh
 alias vactivate='source .venv/bin/activate'
 
