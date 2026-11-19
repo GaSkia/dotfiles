@@ -174,8 +174,18 @@ hl.window_rule({
         class = "discord"
     },
 
-    size = "800 600",
-    move = "20 50"
+    size = "950 515",
+    move = "10 50"
+
+})
+
+hl.window_rule({
+    match = {
+        class = "Spotify"
+    },
+
+    size = "950 515",
+    move = "990 50"
 
 })
 
@@ -183,8 +193,8 @@ hl.window_rule({
     match = {
         class = "org.pulseaudio.pavucontrol"
     },
-    size = "1000 350",
-    move = "5 700"
+    size = "900 500",
+    move = "10 600"
 })
 
 hl.env("HYPRCURSOR_THEME", "Future-Cyan-Hyprcursor_Theme")
