@@ -75,6 +75,10 @@ dap.configurations = {
 ui.setup()
 
 vim.fn.sign_define("DapBreakpoint", { text = "🐞" })
+vim.fn.sign_define("DapBreakpointCondition", {text = "🦗" })
+vim.fn.sign_define("DapLogPoint", { text = "📜" })
+vim.fn.sign_define("DapStopped", { text = "🚨" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "⛔" })
 
 dap.listeners.before.attach.dapui_config = function()
 	ui.open()
