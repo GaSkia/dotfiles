@@ -9,4 +9,7 @@ vim.keymap.set("n", "<leader>tB",
             dap.toggle_breakpoint(input)
         end)
     end)
-vim.keymap.set("n", "<leader>dc", function() dap.continue() end)
+
+vim.keymap.set("n", "<F11>", function() dap.continue() end)
+vim.keymap.set("n", "<F5>", function() dap.start() end)
+vim.keymap.set("n", "<leader>cb", function() dap.clear_breakpoint() end)
