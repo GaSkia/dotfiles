@@ -33,6 +33,8 @@ PanelWindow {
         }
 
         Tray {
+            Layout.alignment: Qt.AlignRight
+            Layout.rightMargin: 6
             id: tray
         }
     }
