@@ -20,7 +20,7 @@ Row {
                 id: trayMenu
                 menu: trayItem.modelData.menu
                 anchor.item: trayItem
-                anchor.edges: Qt.Edges.Left
+                anchor.edges: Qt.Edges.Right
                 anchor.gravity: Qt.Edges.Bottom
             }
 
