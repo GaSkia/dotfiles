@@ -30,3 +30,7 @@ _android_complete() {
 }
 compdef _android_complete android
 # <<< android autocomplete <<<
+
+# >>> Codex installer >>>
+export PATH="/home/gaskia/.local/bin:$PATH"
+# <<< Codex installer <<<
